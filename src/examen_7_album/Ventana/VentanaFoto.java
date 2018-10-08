@@ -19,14 +19,40 @@ public class VentanaFoto extends JFrame {
     public JTextField nArchivoText, tamañoText, descripcionText, personaText;
     public JButton addPersona, ok, cancelar;
     public VentanaFoto(){
-        ConfigurarVentana();
+       
         principal=new JPanel();
         principal.setLayout(null);
       
         nArchivo=new JLabel("Nombre");
         nArchivo.setBounds(20, 30, 50, 20);
         nArchivoText=new JTextField(30);
+        nArchivoText.setBounds(130, 30, 150, 20);
         
+        tamaño=new JLabel("Tamaño");
+        tamaño.setBounds(20,60, 50,20);
+        tamañoText=new JTextField(30);
+        tamañoText.setBounds(130, 60, 150, 20);
+        
+        descripcion=new JLabel("Descripcion");
+        descripcion.setBounds(20, 90, 150, 20);
+        descripcionText=new JTextField(30);
+        descripcionText.setBounds(130, 90, 150, 20);
+        
+        persona=new JLabel("Nombre Persona");
+        persona.setBounds(20, 120, 50, 20);
+        personaText=new JTextField(30);
+        personaText.setBounds(130, 120, 150, 20);
+        
+        
+        principal.add(nArchivo);
+        principal.add(nArchivoText);
+        principal.add(tamaño);
+        principal.add(tamañoText);
+        principal.add(descripcion);
+        principal.add(descripcionText);
+        principal.add(persona);
+        principal.add(personaText);
+        add(principal);
         
       
         
@@ -37,7 +63,7 @@ public class VentanaFoto extends JFrame {
         
         
         
-        
+         ConfigurarVentana();
         
     }
     
