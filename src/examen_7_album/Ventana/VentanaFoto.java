@@ -6,6 +6,8 @@
 package examen_7_album.Ventana;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.*;
 
@@ -18,6 +20,7 @@ public class VentanaFoto extends JFrame {
     public JLabel nArchivo, tamaño, descripcion, persona;
     public JTextField nArchivoText, tamañoText, descripcionText, personaText;
     public JButton addPersona, ok, cancelar;
+    public JTable personaJTable;
     public VentanaFoto(){
        
         principal=new JPanel();
@@ -43,6 +46,17 @@ public class VentanaFoto extends JFrame {
         personaText=new JTextField(30);
         personaText.setBounds(130, 120, 150, 20);
         
+        addPersona=new JButton("AñadirPersona");
+        addPersona.setBounds(300, 120, 150, 20);
+        
+        personaJTable=new JTable();
+        personaJTable.setBounds(20, 150, 300, 200);
+        
+        ok=new JButton("Ok");
+        ok.setBounds(200, 430, 100, 20);
+        
+        cancelar=new JButton("Cancelar");
+        cancelar.setBounds(310, 430, 100, 20);
         
         principal.add(nArchivo);
         principal.add(nArchivoText);
@@ -52,9 +66,18 @@ public class VentanaFoto extends JFrame {
         principal.add(descripcionText);
         principal.add(persona);
         principal.add(personaText);
+        principal.add(addPersona);
+        principal.add(ok);
+        principal.add(cancelar);
+        principal.add(personaJTable);
         add(principal);
         
-      
+        cancelar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                System.exit(0);
+            }
+        });
         
              
         
@@ -67,19 +90,9 @@ public class VentanaFoto extends JFrame {
         
     }
     
-    /*public void ConfigurarPanel(String etiqueta, int posicion, int altura){
-        JLabel etiquetaLabel=new JLabel(etiqueta);
-        JTextField etiquetaCampo=new JTextField(10);
-        principal=new JPanel();
-        principal.setLayout(null);
-        principal.add(etiquetaLabel);
-        principal.add(etiquetaCampo);
-        etiquetaLabel.setBounds(posicion, altura, 50, 20);
-        etiquetaCampo.setBounds(posicion+50, altura, 50, 20);
-        
-    }*/
+    
     public void ConfigurarVentana(){
-      setSize( 500, 300);
+      setSize( 500, 500);
       setLocationRelativeTo(this);
       setVisible(true);
       setDefaultCloseOperation(EXIT_ON_CLOSE);
