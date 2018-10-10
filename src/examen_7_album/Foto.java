@@ -8,6 +8,26 @@ public class Foto
     private int tamaño;
     private String descripción;
 
+    public void setPersonasEnFoto(String[] personasEnFoto) {
+        this.personasEnFoto = personasEnFoto;
+    }
+
+    public void setNombreArchivo(String nombreArchivo) {
+        this.nombreArchivo = nombreArchivo;
+    }
+
+    public void setTamaño(int tamaño) {
+        this.tamaño = tamaño;
+    }
+
+    public void setDescripción(String descripción) {
+        this.descripción = descripción;
+    }
+
+    public Foto() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getNombreArchivo() {
         return nombreArchivo;
     }
