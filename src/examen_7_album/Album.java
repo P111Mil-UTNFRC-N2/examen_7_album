@@ -25,29 +25,45 @@ public class Album {
         if (fotos.size() >= getCantidadMaxima()) {
 
             throw new AlbumCompletoException();
-            
+
         } else {
-                    
-                    this.fotos.add(f);
-                    setFotos(fotos);
-                    
-                    
+
+            this.fotos.add(f);
+            setFotos(fotos);
+
         }
 
     }
-    
-    public static class AlbumCompletoException extends Exception{
-    
+
+    public boolean tieneFotoConTamanioMenor(int umbral) {
+
+        boolean fotoConTamanioMenor = false;
+
+        for (Foto fot : fotos) {
+
+            if (fotos.isEmpty()) {
+
+                fotoConTamanioMenor = false;
+                
+            } else {
+                if (umbral > fot.getTamaño()) {
+                    fotoConTamanioMenor = true;
+                }
+            }
+        }
+        return fotoConTamanioMenor;
+    }
+
+    public static class AlbumCompletoException extends Exception {
+
         public AlbumCompletoException() {
         }
 
         private AlbumCompletoException(String album_completo_no_se_pueden_agregar_mas_) {
             throw new UnsupportedOperationException("¡ NO SE PUEDEN AGREGAR MAS FOTOS !"); //To change body of generated methods, choose Tools | Templates.
         }
-    
-    }
 
-    
+    }
 
     public String getNombre() {
         return nombre;
