@@ -73,7 +73,15 @@ public class Album {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public ArrayList<Foto> getFotos(int posicion) {
+    public Foto getFoto(int posicion) {
+        for (int i = 0; i < fotos.size(); i++) {
+            if (i == posicion)
+                return fotos.get(i);
+        }        
+        return null;
+    }
+
+    public ArrayList<Foto> getFotos() {
         return fotos;
     }
 
