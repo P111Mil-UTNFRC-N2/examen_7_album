@@ -24,7 +24,7 @@ public class Conexion
     private Conexion()
     {
         try{
-            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/AlbunFotos?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", 
+            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/AlbumFotos?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", 
                     "root", "");
         }catch(SQLException e)
         {

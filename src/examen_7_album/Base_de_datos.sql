@@ -1,5 +1,5 @@
-create database AlbunFotos; 
-use AlbunFotos;
+create database AlbumFotos; 
+use AlbumFotos;
 
 create table album (
 idalbum int,
