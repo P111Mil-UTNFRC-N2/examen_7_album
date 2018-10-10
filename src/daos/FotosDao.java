@@ -1,5 +1,6 @@
 package daos;
 
+import examen_7_album.Foto;
 import conexion.Conexion;
 import examen_7_album.Foto;
 import examen_7_album.Album;
@@ -30,8 +31,13 @@ public class FotosDao {
 
     }
 
-    public void agregarFoto() {
-
+    
+    public void agregarFoto(int idAlbum, Foto foto){
+        
+        String sql= "insert into foto "
+                + "(idalbum,     descripcion, nombrearchivo, tamaño) values "
+                + "("+idAlbum+", '"+foto.getDescripción()+"', '"+foto.getNombreArchivo()+"', "+foto.getTamaño()+")";
+        conexion.Conexion.getInstance().ejecutarSQL(sql);
     }
 }
 //ResultSet rs = Conexion.
