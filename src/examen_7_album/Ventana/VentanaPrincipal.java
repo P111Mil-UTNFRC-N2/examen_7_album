@@ -5,6 +5,8 @@
  */
 package examen_7_album.Ventana;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.*;
 
@@ -12,12 +14,12 @@ import javax.swing.*;
  *
  * @author alumno
  */
-public class VentanaPrincipal extends JFrame{
+public class VentanaPrincipal extends JFrame implements ActionListener{
     public  JMenuBar barra;
     public JMenu archivo, album;
     public JMenuItem foto, salir, crear, editar;
    public VentanaPrincipal(){
-       ConfigurarVentana();
+       
        
        barra=new JMenuBar();
        archivo=new JMenu("Archivo");
@@ -35,6 +37,20 @@ public class VentanaPrincipal extends JFrame{
        
        barra.add(archivo);
        setJMenuBar(barra);
+      
+       ConfigurarVentana();
+       
+       
+       salir.addActionListener(this);
+      
+       foto.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent ae) {
+               VentanaFoto vf=new VentanaFoto(VentanaPrincipal.this);
+           }
+       });
+       
+       
        
             
    }
@@ -43,9 +59,17 @@ public class VentanaPrincipal extends JFrame{
       setLocationRelativeTo(this);
       setVisible(true);
       setDefaultCloseOperation(EXIT_ON_CLOSE);
-      
-      
-      
   }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
+        if(salir == e.getSource()){
+            
+            System.exit(0);
+            
+        }
+        
+    }
     
 }

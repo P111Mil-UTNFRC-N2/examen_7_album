@@ -8,6 +8,8 @@ package examen_7_album.Ventana;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -24,7 +26,9 @@ public class VentanaFoto extends JFrame {
     public JButton addPersona, ok, cancelar;
     public JTable personaJTable;
     DefaultTableModel tablam;
-    public VentanaFoto(){
+    public VentanaFoto(VentanaPrincipal ventanaPrincipal){
+        
+        ventanaPrincipal.hide();
        
         principal=new JPanel();
         principal.setLayout(null);
@@ -56,8 +60,15 @@ public class VentanaFoto extends JFrame {
         personaJTable=new JTable();
         personaJTable.setBounds(20, 150, 300, 200);
         tablam=new DefaultTableModel();
+
         tablam.addColumn("Nombre");
+        tablam.addColumn("Nombre2");
+        tablam.addColumn("Nombre3");
+        tablam.addRow(new String[]{"Pepe"});
+        tablam.addRow(new String[]{"Juan"});
+        
         personaJTable.setModel(tablam);
+
         
         
         
@@ -81,12 +92,27 @@ public class VentanaFoto extends JFrame {
         principal.add(personaJTable);
         add(principal);
         
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent we) {
+                super.windowClosed(we); //To change body of generated methods, choose Tools | Templates.
+                
+                ventanaPrincipal.setVisible(true);
+                
+            }
+            
+        });
+        
         cancelar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                System.exit(0);
+                dispose();
+                
             }
         });
+        
+        
+        
         
              
         
@@ -104,7 +130,7 @@ public class VentanaFoto extends JFrame {
       setSize( 500, 500);
       setLocationRelativeTo(this);
       setVisible(true);
-      setDefaultCloseOperation(EXIT_ON_CLOSE);
+      setDefaultCloseOperation(DISPOSE_ON_CLOSE);
       
     }
     
