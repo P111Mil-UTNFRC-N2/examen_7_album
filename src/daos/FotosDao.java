@@ -9,4 +9,6 @@ package daos;
 
 public class FotosDao {
     
+    public void agregarFoto(){
+    }
 }
