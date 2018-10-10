@@ -19,4 +19,6 @@ void seleccionarFotos(){
 }   
 
     
+    public void agregarFoto(){
+    }
 }
