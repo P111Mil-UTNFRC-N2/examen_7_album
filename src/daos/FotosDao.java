@@ -1,8 +1,7 @@
 
 package daos;
 
-import java.sql.*;
-import java.util.*;
+import examen_7_album.Foto;
 
 
 public class FotosDao {
@@ -19,6 +18,11 @@ void seleccionarFotos(){
 }   
 
     
-    public void agregarFoto(){
+    public void agregarFoto(int idAlbum, Foto foto){
+        
+        String sql= "insert into foto "
+                + "(idalbum,     descripcion, nombrearchivo, tamaño) values "
+                + "("+idAlbum+", '"+foto.getDescripción()+"', '"+foto.getNombreArchivo()+"', "+foto.getTamaño()+")";
+        conexion.Conexion.getInstance().ejecutarSQL(sql);
     }
 }

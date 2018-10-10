@@ -8,7 +8,15 @@ public class Foto
     private int tamaño;
     private String descripción;
 
-    public Foto(String nombreArchivo, int tamaño, String descripción)
+    public String getNombreArchivo() {
+        return nombreArchivo;
+    }
+
+    public String getDescripción() {
+        return descripción;
+    }
+
+    public Foto(String nombreArchivo, int tamaño, String descripcion)
     {
         personasEnFoto = new String[tamaño];
         this.nombreArchivo = nombreArchivo;
@@ -18,6 +26,7 @@ public class Foto
     {
         this.nombreArchivo=nomArchivo;
     }
+   
     public String getPersonaEnFoto(int pos)
     {
         return personasEnFoto[pos];
