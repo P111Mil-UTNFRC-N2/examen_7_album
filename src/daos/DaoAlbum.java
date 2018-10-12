@@ -34,9 +34,5 @@ public class DaoAlbum
         sql = "insert into foto values("+ idfoto +", "+idalbum +", '"+descripcion+"', '"+nombrearchivo+"', "+tamaño+");";
         Conexion.getInstance().ejecutarSQL(sql);
     } 
-    public ResultSet MostrarAlbum()
-    {
-        
-    }
-    
+   
 }

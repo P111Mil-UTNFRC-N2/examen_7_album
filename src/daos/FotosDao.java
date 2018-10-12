@@ -20,7 +20,7 @@ public class FotosDao {
         ResultSet fotosBd = conex.consultarSQL("Select F.* from F.Foto where F.idalbum = " + idAlbum);
         while (fotosBd.next()) {
             Foto f = new Foto();
-            f.setTamaño(fotosBd.getInt("idFoto"));
+            f.setCantPerFoto(fotosBd.getInt("idFoto"));
             f.setDescripción(fotosBd.getString("descripcion"));
             f.setNombreArchivo(fotosBd.getString("nombrearchivo"));
 
@@ -34,8 +34,8 @@ public class FotosDao {
     public void agregarFoto(int idAlbum, Foto foto) {
 
         String sql = "insert into foto "
-                + "(idalbum,     descripcion, nombrearchivo, tamaño) values "
-                + "(" + idAlbum + ", '" + foto.getDescripción() + "', '" + foto.getNombreArchivo() + "', " + foto.getTamaño() + ")";
+                + "(idalbum,     descripcion, nombrearchivo, CantPerFoto) values "
+                + "(" + idAlbum + ", '" + foto.getDescripción() + "', '" + foto.getNombreArchivo() + "', " + foto.getCantPerFoto() + ")";
         conexion.Conexion.getInstance().ejecutarSQL(sql);
     }
 }
