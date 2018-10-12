@@ -1,20 +1,23 @@
 
-package conexion;
+package daos;
 import java.sql.*;
+import conexion.Conexion;
 
-public class AlbumBll
+
+
+public class DaoAlbum 
 {
-    private AlbumBll instance;
+    private  DaoAlbum instance;
     
-    public AlbumBll getInstance()
+    public DaoAlbum getInstance()
     {
         if(instance == null)
         {
-            instance = new AlbumBll();
+            instance = new DaoAlbum();
         }
         return instance;
     }
-    private AlbumBll()
+    private DaoAlbum()
     {
         Conexion con = Conexion.getInstance();
         
@@ -31,5 +34,9 @@ public class AlbumBll
         sql = "insert into foto values("+ idfoto +", "+idalbum +", '"+descripcion+"', '"+nombrearchivo+"', "+tamaño+");";
         Conexion.getInstance().ejecutarSQL(sql);
     } 
+    public ResultSet MostrarAlbum()
+    {
+        
+    }
     
 }
