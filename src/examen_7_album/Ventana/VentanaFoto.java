@@ -33,7 +33,7 @@ public class VentanaFoto extends JFrame implements ActionListener {
     public VentanaFoto(VentanaPrincipal ventanaPrincipal){
         
         ventanaPrincipal.hide();
-       
+        
         principal=new JPanel();
         principal.setLayout(null);
       
@@ -66,6 +66,7 @@ public class VentanaFoto extends JFrame implements ActionListener {
         tablam=new DefaultTableModel();
 
         tablam.addColumn("Nombre");
+        
  
         personaJTable.setModel(tablam);
 
@@ -114,6 +115,7 @@ public class VentanaFoto extends JFrame implements ActionListener {
         addPersona.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
+                
                 PersonasEnFoto.add(personaText.getText());
                 tablam.addRow(new String[]{personaText.getText()});
                 personaText.setText("");
