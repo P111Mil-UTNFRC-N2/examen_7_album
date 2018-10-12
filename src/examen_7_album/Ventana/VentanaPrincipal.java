@@ -61,10 +61,10 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
        
        
        modelo.addColumn("Nombre del Album");
-       modelo.addColumn("Nombre del Album");
-       modelo.addColumn("Nombre del Album");
+       modelo.addColumn("Nombre del Album2");
+       modelo.addColumn("Nombre del Album3");
        
-       modelo.addRow(new Object []{"Los wachitos",20,new SimpleDateFormat("15/03/14")});       
+       modelo.addRow(new Object []{"Los wachitos",20,"15/03/14"});       
        
        JTable tabla = new JTable();
        
