@@ -28,15 +28,11 @@ public class DaoAlbum
         sql = "insert into album values("+idalbum+",'"+nombre+"',"+cantmax+", "+fechacreacion+");";
         Conexion.getInstance().ejecutarSQL(sql);
     }
-    public void agregarFoto(int idfoto, int idalbum, String descripcion, String nombrearchivo, int tamaño)
-    {
-        String sql;
-        sql = "insert into foto values("+ idfoto +", "+idalbum +", '"+descripcion+"', '"+nombrearchivo+"', "+tamaño+");";
-        Conexion.getInstance().ejecutarSQL(sql);
-    } 
-    public ResultSet MostrarAlbum()
-    {
-        
-    }
+    //public void agregarFoto(int idfoto, int idalbum, String descripcion, String nombrearchivo, int tamaño)
+    //{
+    //    String sql;
+    //    sql = "insert into foto values("+ idfoto +", "+idalbum +", '"+descripcion+"', '"+nombrearchivo+"', "+tamaño+");";
+    //    Conexion.getInstance().ejecutarSQL(sql);
+    //} 
     
 }
