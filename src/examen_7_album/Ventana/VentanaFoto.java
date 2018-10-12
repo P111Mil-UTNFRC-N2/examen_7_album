@@ -5,11 +5,14 @@
  */
 package examen_7_album.Ventana;
 
+import daos.FotosDao;
+import examen_7_album.Foto;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -19,13 +22,14 @@ import javax.swing.table.TableColumn;
  *
  * @author alumno
  */
-public class VentanaFoto extends JFrame {
+public class VentanaFoto extends JFrame implements ActionListener {
     public JPanel principal;
     public JLabel nArchivo, tamaño, descripcion, persona;
     public JTextField nArchivoText, tamañoText, descripcionText, personaText;
     public JButton addPersona, ok, cancelar;
     public JTable personaJTable;
     DefaultTableModel tablam;
+    ArrayList<String> PersonasEnFoto=new ArrayList<>();
     public VentanaFoto(VentanaPrincipal ventanaPrincipal){
         
         ventanaPrincipal.hide();
@@ -33,28 +37,28 @@ public class VentanaFoto extends JFrame {
         principal=new JPanel();
         principal.setLayout(null);
       
-        nArchivo=new JLabel("Nombre");
+        nArchivo=new JLabel("Nombre:");
         nArchivo.setBounds(20, 30, 50, 20);
         nArchivoText=new JTextField(30);
-        nArchivoText.setBounds(130, 30, 150, 20);
+        nArchivoText.setBounds(180, 30, 150, 20);
         
-        tamaño=new JLabel("Tamaño");
-        tamaño.setBounds(20,60, 50,20);
+        tamaño=new JLabel("Cantidad de Personas:");
+        tamaño.setBounds(20,60, 200,20);
         tamañoText=new JTextField(30);
-        tamañoText.setBounds(130, 60, 150, 20);
+        tamañoText.setBounds(180, 60, 150, 20);
         
-        descripcion=new JLabel("Descripcion");
+        descripcion=new JLabel("Descripcion:");
         descripcion.setBounds(20, 90, 150, 20);
         descripcionText=new JTextField(30);
-        descripcionText.setBounds(130, 90, 150, 20);
+        descripcionText.setBounds(180, 90, 150, 20);
         
-        persona=new JLabel("Nombre Persona");
-        persona.setBounds(20, 120, 50, 20);
+        persona=new JLabel("Nombre Persona:");
+        persona.setBounds(20, 120, 200, 20);
         personaText=new JTextField(30);
-        personaText.setBounds(130, 120, 150, 20);
+        personaText.setBounds(180, 120, 150, 20);
         
         addPersona=new JButton("AñadirPersona");
-        addPersona.setBounds(300, 120, 150, 20);
+        addPersona.setBounds(350, 120, 120, 20);
        
        //tabla 
         personaJTable=new JTable();
@@ -62,11 +66,7 @@ public class VentanaFoto extends JFrame {
         tablam=new DefaultTableModel();
 
         tablam.addColumn("Nombre");
-        tablam.addColumn("Nombre2");
-        tablam.addColumn("Nombre3");
-        tablam.addRow(new String[]{"Pepe"});
-        tablam.addRow(new String[]{"Juan"});
-        
+ 
         personaJTable.setModel(tablam);
 
         
@@ -111,8 +111,15 @@ public class VentanaFoto extends JFrame {
             }
         });
         
-        
-        
+        addPersona.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                PersonasEnFoto.add(personaText.getText());
+                tablam.addRow(new String[]{personaText.getText()});
+                personaText.setText("");
+            }
+        });
+        ok.addActionListener(this);
         
              
         
@@ -132,6 +139,17 @@ public class VentanaFoto extends JFrame {
       setVisible(true);
       setDefaultCloseOperation(DISPOSE_ON_CLOSE);
       
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        
+        int tam=Integer.parseInt(tamaño.getText());
+        
+        Foto f=new Foto(nArchivoText.getText(), tam, descripcionText.getText());
+        
+        
+        
     }
     
 }
