@@ -49,6 +49,12 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
                VentanaFoto vf=new VentanaFoto(VentanaPrincipal.this);
            }
        });
+       crear.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent ae) {
+               VentanaAlbum va=new VentanaAlbum(VentanaPrincipal.this);
+           }
+       });
        
        
        

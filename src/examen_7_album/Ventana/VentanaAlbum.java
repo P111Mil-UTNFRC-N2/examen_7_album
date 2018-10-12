@@ -5,6 +5,8 @@
  */
 package examen_7_album.Ventana;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JButton;
@@ -50,6 +52,10 @@ public class VentanaAlbum extends JFrame {
         textNombreA.setBounds(250, 30, 130, 15);
         textCantMax.setBounds(250, 50, 130, 15);
         textFechaCreacion.setBounds(250, 70, 130, 15);
+        ok.setBounds(250, 420, 80, 15);
+        cancelar.setBounds(350, 420, 100, 15);
+        addFoto.setBounds(20, 100, 150, 15);
+        
         
         
         //añadir al panel
@@ -59,8 +65,9 @@ public class VentanaAlbum extends JFrame {
         principal.add(textNombreA);
         principal.add(textCantMax);
         principal.add(textFechaCreacion);
-        
-        
+        principal.add(ok);
+        principal.add(cancelar);
+        principal.add(addFoto);
          addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosed(WindowEvent we) {
@@ -71,6 +78,14 @@ public class VentanaAlbum extends JFrame {
             }
             
         });
+        cancelar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                dispose();
+                
+            }
+        });
+        
         
         
     ConfigurarVentana();
