@@ -13,17 +13,22 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author alumno
  */
-public class VentanaAlbum extends JFrame {
+public class VentanaAlbum extends JFrame implements ActionListener {
     public JPanel principal;
     public JLabel NombreA, CantMax, FechaCreacion;
     private JTextField textNombreA, textCantMax, textFechaCreacion;
     private JButton ok, addFoto, cancelar; 
+    private JTable personaJTable;
+    DefaultTableModel tablam;
+    
     
     public VentanaAlbum(VentanaPrincipal ventanaPrincipal){
         ventanaPrincipal.hide();
@@ -68,7 +73,26 @@ public class VentanaAlbum extends JFrame {
         principal.add(ok);
         principal.add(cancelar);
         principal.add(addFoto);
-         addWindowListener(new WindowAdapter() {
+        principal.add(personaJTable);
+        
+        //tabla 
+        personaJTable=new JTable();
+        personaJTable.setBounds(20, 150, 300, 200);
+        tablam=new DefaultTableModel();
+        
+        tablam.addColumn("Nombre");
+        tablam.addColumn("Nombre2");
+        tablam.addColumn("Nombre3");
+        tablam.addRow(new String[]{"Pepe"});
+        tablam.addRow(new String[]{"Juan"});
+        
+        personaJTable.setModel(tablam);
+
+        
+        
+        
+        
+        addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosed(WindowEvent we) {
                 super.windowClosed(we); //To change body of generated methods, choose Tools | Templates.
@@ -98,6 +122,11 @@ public class VentanaAlbum extends JFrame {
       setVisible(true);
       setDefaultCloseOperation(DISPOSE_ON_CLOSE);
       
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
