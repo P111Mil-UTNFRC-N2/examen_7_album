@@ -7,8 +7,11 @@ package examen_7_album.Ventana;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import javax.swing.JFrame;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,8 +22,6 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
     public JMenu archivo, album;
     public JMenuItem foto, salir, crear, editar;
    public VentanaPrincipal(){
-       
-       
        barra=new JMenuBar();
        archivo=new JMenu("Archivo");
        foto=new JMenuItem("Foto");
@@ -38,7 +39,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
        barra.add(archivo);
        setJMenuBar(barra);
       
-       ConfigurarVentana();
+       
        
        
        salir.addActionListener(this);
@@ -56,9 +57,22 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
            }
        });
        
+       DefaultTableModel modelo = new DefaultTableModel();
        
        
-            
+       modelo.addColumn("Nombre del Album");
+       modelo.addColumn("Nombre del Album");
+       modelo.addColumn("Nombre del Album");
+       
+       modelo.addRow(new Object []{"Los wachitos",20,new SimpleDateFormat("15/03/14")});       
+       
+       JTable tabla = new JTable();
+       
+       tabla.setModel(modelo);
+       
+       add(tabla);
+       
+       ConfigurarVentana();
    }
   public void ConfigurarVentana(){
       setSize( 500, 300);
