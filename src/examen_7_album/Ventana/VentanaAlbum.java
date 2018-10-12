@@ -21,7 +21,7 @@ public class VentanaAlbum extends JFrame {
     public JPanel principal;
     public JLabel NombreA, CantMax, FechaCreacion;
     private JTextField textNombreA, textCantMax, textFechaCreacion;
-    private JButton ok, addFoto, Cancelar; 
+    private JButton ok, addFoto, cancelar; 
     
     public VentanaAlbum(VentanaPrincipal ventanaPrincipal){
         ventanaPrincipal.hide();
@@ -29,14 +29,21 @@ public class VentanaAlbum extends JFrame {
         principal=new JPanel();
         add(principal);
         principal.setLayout(null);
-        
+        //iniciacion
         NombreA=new JLabel("Nombre:");
         CantMax=new JLabel("Cantidad Maxima Fotos:");
         FechaCreacion=new JLabel("Fecha Creacion Album: ");
         textNombreA=new JTextField(30);
         textFechaCreacion=new JTextField(30);
         textCantMax=new JTextField(10);
+        ok=new JButton("Ok");
+        addFoto=new JButton("Añadir Foto");
+        cancelar=new JButton("Cancelar");
+                
         
+        
+        
+        //seteo de posiciones
         NombreA.setBounds(20, 30, 180, 15);
         CantMax.setBounds(20, 50, 180, 15);
         FechaCreacion.setBounds(20, 70, 180, 15);
@@ -44,6 +51,8 @@ public class VentanaAlbum extends JFrame {
         textCantMax.setBounds(250, 50, 130, 15);
         textFechaCreacion.setBounds(250, 70, 130, 15);
         
+        
+        //añadir al panel
         principal.add(NombreA);
         principal.add(CantMax);
         principal.add(FechaCreacion);
