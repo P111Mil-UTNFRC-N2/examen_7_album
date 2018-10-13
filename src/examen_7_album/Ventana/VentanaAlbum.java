@@ -81,15 +81,11 @@ public class VentanaAlbum extends JFrame implements ActionListener {
         tablam=new DefaultTableModel();
         
         tablam.addColumn("Nombre");
-        tablam.addColumn("Nombre2");
-        tablam.addColumn("Nombre3");
-        tablam.addRow(new String[]{"Pepe"});
-        tablam.addRow(new String[]{"Juan"});
-        
+    
         personaJTable.setModel(tablam);
 
-        
-        
+      
+      
         
         
         addWindowListener(new WindowAdapter() {
