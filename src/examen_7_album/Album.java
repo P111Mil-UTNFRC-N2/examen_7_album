@@ -13,12 +13,14 @@ public class Album {
     private Date fechaCreacion;
     private ArrayList<Foto> fotos;
 
-    public Album(int cantidadMaxima, String nombre) {
-
-        this.cantidadMaxima = cantidadMaxima;
+    public Album(String nombre, int cantidadMaxima, Date fechaCreacion) {
         this.nombre = nombre;
-        this.fotos = new ArrayList<Foto>();
+        this.cantidadMaxima = cantidadMaxima;
+        this.fechaCreacion = fechaCreacion;
     }
+
+    
+
     public void addFoto(Foto f) throws AlbumCompletoException {
 
         if (fotos.size() >= getCantidadMaxima()) {
