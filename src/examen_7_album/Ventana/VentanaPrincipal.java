@@ -5,6 +5,8 @@
  */
 package examen_7_album.Ventana;
 
+import daos.AlbumDao;
+import examen_7_album.Album;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
@@ -23,6 +25,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
     public JMenu archivo, album;
     public JMenuItem foto, salir, crear, editar;
     private javax.swing.JScrollPane jScrollPane1;
+    
+    AlbumDao albumDao;
 
     public VentanaPrincipal() {
         barra = new JMenuBar();
@@ -59,13 +63,12 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
             }
         });
 
-        DefaultTableModel modelo = new DefaultTableModel();
+        DefaultTableModel modelo = new DefaultTableModel(null,new Object[]{"Nombre del album","Cantidad Maxima de Fotos","Fecha de creacion"});
 
-        modelo.addColumn("Nombre del Album");
-        modelo.addColumn("Nombre del Album2");
-        modelo.addColumn("Nombre del Album3");
-
-        modelo.addRow(new Object[]{"Los wachitos", 20, "15/03/14"});
+        for (Album album : albumDao.mostrarAlbum()) {
+            modelo.addRow(new Object[]{album.getNombre(),album.getCantidadMaxima(),album.getFechaCreacion()});    
+        }
+        
 
         JTable tabla = new JTable();
 
