@@ -2,6 +2,11 @@
 package daos;
 import java.sql.*;
 import conexion.Conexion;
+import examen_7_album.Album;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -34,5 +39,24 @@ public class DaoAlbum
     //    sql = "insert into foto values("+ idfoto +", "+idalbum +", '"+descripcion+"', '"+nombrearchivo+"', "+tamaño+");";
     //    Conexion.getInstance().ejecutarSQL(sql);
     //} 
-    
+    public List<Album> mostrarAlbum() {
+                    
+        List<Album> album = new ArrayList();
+
+        try {
+            
+            ResultSet rs = Conexion.getInstance().consultarSQL("select * from computadora ");
+            
+            while(rs.next()){
+                
+                Album alb = new Album (rs.getInt(1),rs.getString("nombre"),rs.getInt(3),rs.getInt(4));
+                
+                album.add(alb);                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DaoAlbum.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return album;        
+    }
 }

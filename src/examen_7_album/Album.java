@@ -20,6 +20,10 @@ public class Album {
         this.fotos = new ArrayList<Foto>();
     }
 
+    public Album(int aInt, String string, int aInt0, int aInt1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public void addFoto(Foto f) throws AlbumCompletoException {
 
         if (fotos.size() >= getCantidadMaxima()) {
