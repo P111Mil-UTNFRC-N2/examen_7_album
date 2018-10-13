@@ -50,7 +50,7 @@ public class Album {
                 fotoConTamanioMenor = false;
                 
             } else {
-                if (umbral > fot.getTamaño()) {
+                if (umbral > fot.getCantPerFoto()) {
                     fotoConTamanioMenor = true;
                 }
             }
