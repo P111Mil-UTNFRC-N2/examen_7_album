@@ -150,7 +150,7 @@ public class VentanaFoto extends JFrame implements ActionListener {
         int tam=Integer.parseInt(tamaño.getText());
         
         Foto f=new Foto(nArchivoText.getText(), tam, descripcionText.getText());
-        
+        FotosDao.getInstance().agregarFoto(0, f);
         
         
         dispose();

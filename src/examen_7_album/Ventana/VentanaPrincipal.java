@@ -65,10 +65,10 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 
         DefaultTableModel modelo = new DefaultTableModel(null,new Object[]{"Nombre del album","Cantidad Maxima de Fotos","Fecha de creacion"});
 
-        for (Album album : albumDao.mostrarAlbum()) {
+       /* for (Album album : albumDao.mostrarAlbum()) {
             modelo.addRow(new Object[]{album.getNombre(),album.getCantidadMaxima(),album.getFechaCreacion()});    
         }
-        
+        */
 
         JTable tabla = new JTable();
 
