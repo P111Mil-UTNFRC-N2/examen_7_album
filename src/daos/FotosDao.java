@@ -6,6 +6,8 @@ import examen_7_album.Foto;
 import examen_7_album.Album;
 import java.sql.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class FotosDao {
 
@@ -42,12 +44,25 @@ public class FotosDao {
 
     }
 
-    public void agregarFoto(int idAlbum, Foto foto) {
+    public List<Album> mostrarAlbum() {
+                    
+        List<Album> album = new ArrayList();
 
-        String sql = "insert into foto "
-                + "(idalbum,     descripcion, nombrearchivo, CantPerFoto) values "
-                + "(" + idAlbum + ", '" + foto.getDescripción() + "', '" + foto.getNombreArchivo() + "', " + foto.getCantPerFoto() + ")";
-        conexion.Conexion.getInstance().ejecutarSQL(sql);
+        try {
+            
+            ResultSet rs = Conexion.getInstance().consultarSQL("select * from computadora ");
+            
+            while(rs.next()){
+                
+                Album alb = new Album (rs.getInt(1),rs.getString("nombre"),rs.getInt(3),rs.getInt(4));
+                
+                album.add(alb);                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DaoAlbum.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return album;        
     }
 }
 //ResultSet rs = Conexion.
