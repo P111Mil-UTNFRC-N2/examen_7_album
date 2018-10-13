@@ -5,6 +5,7 @@
  */
 package examen_7_album.Ventana;
 
+import conexion.Conexion;
 import daos.FotosDao;
 import examen_7_album.Foto;
 import java.awt.BorderLayout;
@@ -151,6 +152,8 @@ public class VentanaFoto extends JFrame implements ActionListener {
         Foto f=new Foto(nArchivoText.getText(), tam, descripcionText.getText());
         
         
+        
+        dispose();
         
     }
     
