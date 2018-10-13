@@ -9,9 +9,20 @@ import java.util.*;
 
 public class FotosDao {
 
-    public FotosDao() {
+    private static FotosDao instance;
+    public FotosDao()
+    {
+        
     }
-
+    public FotosDao getInstance()
+    {
+        if(instance == null)
+        {
+            instance = new FotosDao();
+        }
+        return instance;
+    }
+    
     public List<Foto> seleccionarFotos(int idAlbum) throws SQLException {
 
         ArrayList<Foto> lasFotos = new ArrayList<>();
