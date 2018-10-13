@@ -5,7 +5,7 @@ public class Foto
 {
     private String[] personasEnFoto;
     private String nombreArchivo;
-    private int tamaño;
+    private int CantPerFoto;
     private String descripción;
 
     public void setPersonasEnFoto(String[] personasEnFoto) {
@@ -16,8 +16,8 @@ public class Foto
         this.nombreArchivo = nombreArchivo;
     }
 
-    public void setTamaño(int tamaño) {
-        this.tamaño = tamaño;
+    public void setCantPerFoto(int CantPerFoto) {
+        this.CantPerFoto = CantPerFoto;
     }
 
     public void setDescripción(String descripción) {
@@ -36,9 +36,9 @@ public class Foto
         return descripción;
     }
 
-    public Foto(String nombreArchivo, int tamaño, String descripcion)
+    public Foto(String nombreArchivo, int CantPerFoto, String descripcion)
     {
-        personasEnFoto = new String[tamaño];
+        personasEnFoto = new String[CantPerFoto];
         this.nombreArchivo = nombreArchivo;
         this.descripción = descripción;
     }
@@ -55,9 +55,9 @@ public class Foto
     {
         personasEnFoto[pos] =  persona;
     }
-    public int getTamaño()
+    public int getCantPerFoto()
     {
-        return tamaño;
+        return CantPerFoto;
     }
 
     int size() {
