@@ -13,13 +13,16 @@ public class Album {
     private Date fechaCreacion;
     private ArrayList<Foto> fotos;
 
-    public Album(String nombre, int cantidadMaxima, Date fechaCreacion) {
-        this.nombre = nombre;
+    public Album(int cantidadMaxima, String nombre) {
+
         this.cantidadMaxima = cantidadMaxima;
-        this.fechaCreacion = fechaCreacion;
+        this.nombre = nombre;
+        this.fotos = new ArrayList<Foto>();
     }
 
-    
+    public Album(int aInt, String string, int aInt0, int aInt1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     public void addFoto(Foto f) throws AlbumCompletoException {
 
