@@ -12,9 +12,9 @@ import java.util.logging.Logger;
 
 public class DaoAlbum 
 {
-    private  DaoAlbum instance;
+    private static  DaoAlbum instance;
     
-    public DaoAlbum getInstance()
+    public static DaoAlbum getInstance()
     {
         if(instance == null)
         {
@@ -46,11 +46,11 @@ public class DaoAlbum
 
         try {
             
-            ResultSet rs = Conexion.getInstance().consultarSQL("select * from computadora ");
+            ResultSet rs = Conexion.getInstance().consultarSQL("select * from album ");
             
             while(rs.next()){
                 
-                Album alb = new Album (rs.getInt(1),rs.getString("nombre"),rs.getInt(3),rs.getInt(4));
+                Album alb = new Album (rs.getInt(1),rs.getString("nombre"));
                 
                 album.add(alb);                
             }

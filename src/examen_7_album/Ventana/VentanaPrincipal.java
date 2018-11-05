@@ -6,6 +6,7 @@
 package examen_7_album.Ventana;
 
 import daos.AlbumDao;
+import daos.DaoAlbum;
 import examen_7_album.Album;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,9 +26,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
     public JMenu archivo, album;
     public JMenuItem foto, salir, crear, editar;
     private javax.swing.JScrollPane jScrollPane1;
-    
-    AlbumDao albumDao;
 
+    
     public VentanaPrincipal() {
         barra = new JMenuBar();
         archivo = new JMenu("Archivo");
@@ -63,18 +63,17 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
             }
         });
 
-        DefaultTableModel modelo = new DefaultTableModel(null,new Object[]{"Nombre del album","Cantidad Maxima de Fotos","Fecha de creacion"});
-
-       /* for (Album album : albumDao.mostrarAlbum()) {
-            modelo.addRow(new Object[]{album.getNombre(),album.getCantidadMaxima(),album.getFechaCreacion()});    
-        }
-        */
+        DefaultTableModel modelo = new DefaultTableModel(null, new Object[]{"Nombre del album", "Cantidad Maxima de Fotos", "Fecha de creacion"});
+        
+        DaoAlbum.getInstance().mostrarAlbum().forEach((album) -> {
+            modelo.addRow(new Object[]{album.getNombre(), album.getCantidadMaxima(), album.getFechaCreacion()});
+        });
 
         JTable tabla = new JTable();
 
         tabla.setModel(modelo);
         jScrollPane1.setViewportView(tabla);
-        
+
         add(jScrollPane1);
 
         ConfigurarVentana();

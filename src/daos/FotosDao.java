@@ -54,7 +54,7 @@ public class FotosDao {
             
             while(rs.next()){
                 
-                Album alb = new Album (rs.getInt(1),rs.getString("nombre"),rs.getInt(3),rs.getInt(4));
+                Album alb = new Album (rs.getInt(1),rs.getString("nombre"));
                 
                 album.add(alb);                
             }
