@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-nov-2018 21:15:43 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="albumfotos.entity.Album" table="album" catalog="albumfotos" optimistic-lock="version">
+        <id name="idalbum" type="int">
+            <column name="idalbum" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" />
+        </property>
+        <property name="cantmax" type="java.lang.Integer">
+            <column name="cantmax" />
+        </property>
+        <property name="fechacreacion" type="date">
+            <column name="fechacreacion" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

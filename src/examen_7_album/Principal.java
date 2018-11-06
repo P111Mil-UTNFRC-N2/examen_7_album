@@ -5,6 +5,7 @@
  */
 package examen_7_album;
 
+import album.ui.albumfotos;
 import examen_7_album.Ventana.VentanaPrincipal;
 
 /**
@@ -18,8 +19,8 @@ public class Principal {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        VentanaPrincipal x = new VentanaPrincipal();
-        
+        albumfotos x = new albumfotos();
+        x.setVisible(true);
     }
     
 }
