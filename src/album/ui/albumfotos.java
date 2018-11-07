@@ -49,23 +49,23 @@ public class albumfotos extends javax.swing.JFrame {
 
         resultTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Nombre", "Cantidad de fotos", "Fecha de creacion", "Id album"
+                "Nombre", "Cantidad de fotos", "Fecha de creacion"
             }
         ));
         jScrollPane1.setViewportView(resultTable);
@@ -117,7 +117,7 @@ public class albumfotos extends javax.swing.JFrame {
     tableHeaders.add("nombre"); 
     tableHeaders.add("Cantida de fotos");
     tableHeaders.add("Fecha de creacion");
-    tableHeaders.add("id album");
+    
     
  
     for(Object o : resultList) {
@@ -126,7 +126,7 @@ public class albumfotos extends javax.swing.JFrame {
         oneRow.add(album.getNombre());
         oneRow.add(album.getCantmax());
         oneRow.add(album.getFechacreacion());
-        oneRow.add(album.getIdalbum());
+        
        
         tableData.add(oneRow);
     }
